@@ -1,6 +1,7 @@
 # MahaPala
 Detection of fruits disease by using Machine learning
 
+## ಕರ್ನಾಟಕ ರಾಜೋತ್ಸವದ ಶುಭಾಶಯಗಳು
 
 ## Release Note
 
