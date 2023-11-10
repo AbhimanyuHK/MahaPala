@@ -12,7 +12,12 @@ Create class to indentify the fruit names tested it for Guava & Mango fruits
 * adam optimizer
 * relu activation
 
+## Reference
 
+* https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4245116/
+
+
+  
 ## Release Note
 
 ### 2021.11.01
