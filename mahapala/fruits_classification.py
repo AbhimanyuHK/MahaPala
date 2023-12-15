@@ -5,6 +5,7 @@ Created by abhimanyu at 16/06/21
 """
 
 # importing libraries
+
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
@@ -14,24 +15,26 @@ from tensorflow.keras.models import Sequential
 
 class FruitsClassification:
 
-    def __init__(self):
+    def __init__(self, x_path: str = ""):
         self.history = None
         self.class_names = []
         self.img_width, self.img_height = 224, 224
 
-        self.train_data_dir = 'data/fruits/train'
-        self.validation_data_dir = 'data/fruits/test'
-        self.predict_data_dir = 'data/fruits/predict'
+        self.train_data_dir = x_path + 'data/fruits/train'
+        self.validation_data_dir = x_path + 'data/fruits/test'
+        self.predict_data_dir = x_path + 'data/fruits/predict'
 
         self.nb_train_samples = 400
         self.nb_validation_samples = 100
         self.epochs = 10
-        self.batch_size = 16
+        self.batch_size = 1
         self.num_classes = 5
 
         self.model = Sequential([
-            layers.experimental.preprocessing.Rescaling(1. / 255, input_shape=(
-                self.img_height, self.img_width, 3)),
+            layers.experimental.preprocessing.Rescaling(
+                1. / 255,
+                input_shape=(self.img_height, self.img_width, 3)
+            ),
             layers.Conv2D(16, 3, padding='same', activation='relu'),
             layers.MaxPooling2D(),
             layers.Conv2D(32, 3, padding='same', activation='relu'),
@@ -119,7 +122,34 @@ class FruitsClassification:
             image_size=(self.img_height, self.img_width),
             batch_size=self.batch_size
         )
+        print(predict_generator)
+
+        # image = tf.keras.utils.load_img("../data/fruits/predict/test/21.jpeg")
+        # print("image", image)
+        # input_arr = keras.utils.img_to_array(image)
+        # predict_generator = np.array([input_arr])  # Convert single image to a batch.
+
         f = self.model.predict(predict_generator)
+        score = tf.nn.softmax(f[0])
+        data = {
+            "class": self.class_names[np.argmax(score)],
+            "confidence": "{:.2f} percent".format(100 * np.max(score))
+        }
+        print(data)
+        lt.append(data)
+        return lt
+
+    def predict_image(self, image):
+        self.model.summary()
+        lt = []
+
+        predict_generator = tf.keras.preprocessing.image.img_to_array(
+            image
+        )
+        predict_generator = tf.expand_dims(predict_generator, axis=0)  # add an extra dimension at axis 0
+        print(predict_generator.shape)
+
+        f = self.model.predict([predict_generator])
         score = tf.nn.softmax(f[0])
         data = {
             "class": self.class_names[np.argmax(score)],
@@ -133,7 +163,9 @@ class FruitsClassification:
 if __name__ == "__main__":
     fc = FruitsClassification()
     fc.fit()
-    for x in range(10):
-        r = fc.predict()
-        print(r)
-        input("Enter to continue")
+    r = fc.predict()
+    print(r)
+    # for x in range(10):
+    #     r = fc.predict()
+    #     print(r)
+    #     input("Enter to continue")
