@@ -57,6 +57,10 @@ _________________________________________________________________
   
 ## Release Note
 
+## 2023.12.16
+* #9 Create a sample to identify the fruits name
+* #11 Implement visualization dashboard
+
 ### 2021.11.01
 * #9 Create a sample to identify the fruits name
 
