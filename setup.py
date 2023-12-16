@@ -1,8 +1,7 @@
 from setuptools import setup
 import glob
 
-data_files = [f.replace("\\", "/") for f in glob.glob("data/*/*")]
-print(data_files)
+data_files = [f.replace("\\", "/") for f in glob.glob("data/*/*/*/*")]
 
 with open("README.md", "r", encoding="utf8") as readme:
     description = readme.read()
@@ -21,7 +20,7 @@ keys = [x.strip(x.split("/")[-1]).strip("/").strip() for x in data_files]
 setup(
     name='MahaPala',
     version=version_x,
-    packages=['mahapala'],
+    packages=['mahapala', "data"],
     url='https://github.com/AbhimanyuHK/MahaPala',
     license='',
     author='Abhimanyu HK',
@@ -30,5 +29,5 @@ setup(
     long_description=description,
     long_description_content_type="text/markdown",
     install_requires=install_requires,
-    data_files=[(keys[0], data_files)],
+    include_package_data=True,
 )
