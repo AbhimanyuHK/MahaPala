@@ -1,6 +1,11 @@
 # MahaPala
 Detection of fruits disease by using Machine learning
 
+## Architecture 
+
+![image](https://github.com/AbhimanyuHK/MahaPala/assets/32696360/21c38f5d-1875-4dfb-9e92-bfb67f296acd)
+
+
 
 ## Indentification Of Fruits
 
