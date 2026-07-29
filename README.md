@@ -1,6 +1,47 @@
 # MahaPala
 Detection of fruits disease by using Machine learning
 
+## Tech Stack
+
+* Python 3.10
+* TensorFlow / Keras — CNN model for fruit classification
+* OpenCV — template matching sample
+* Matplotlib — training/validation charting
+* Dash + Dash Bootstrap Components — web dashboard
+* pytest — automated tests
+
+## Getting Started
+
+Clone the repo and install dependencies:
+
+```
+git clone https://github.com/AbhimanyuHK/MahaPala.git
+cd MahaPala
+pip install -r requirements.txt -r app_requirements.txt
+```
+
+For running the test suite, also install the dev dependencies:
+
+```
+pip install -r dev-requirements.txt
+```
+
+## Usage
+
+Run the dashboard:
+
+```
+python app.py
+```
+
+Then open http://127.0.0.1:8050 in a browser, upload a fruit/plant image, and view the predicted class and confidence.
+
+Run the tests:
+
+```
+pytest test_mahapala.py -v
+```
+
 ## Architecture 
 
 ![image](https://github.com/AbhimanyuHK/MahaPala/assets/32696360/21c38f5d-1875-4dfb-9e92-bfb67f296acd)
@@ -61,6 +102,10 @@ _________________________________________________________________
 
   
 ## Release Note
+
+## 2026.07.29
+* Modernized dependencies (TensorFlow, numpy, matplotlib, opencv-python, dash, dash-bootstrap-components) and replaced deprecated Keras/Dash APIs
+* Added pytest-based automated tests and a CI workflow to run them on every push/PR
 
 ## 2023.12.16
 * #9 Create a sample to identify the fruits name
