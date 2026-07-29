@@ -1,2 +1,2 @@
-dash
-dash-bootstrap-components
+dash==4.4.1
+dash-bootstrap-components==2.0.4

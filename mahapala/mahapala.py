@@ -23,9 +23,6 @@ class MahaPala:
         self.template = cv2.imread(sample_file, 0)
         self.w, self.h = self.template.shape[::-1]
 
-    def output(self):
-        pass
-
     def process(self, method=cv2.TM_CCOEFF):
         self.method = method
         img = self.img2.copy()

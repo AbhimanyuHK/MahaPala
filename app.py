@@ -5,6 +5,7 @@ Created by abhimanyu at 15/12/23
 """
 
 import base64
+import os
 from io import BytesIO
 
 import dash
@@ -12,7 +13,7 @@ import dash_bootstrap_components as dbc
 from PIL import Image
 from dash import html, dcc, callback, Output, Input, State
 
-from mahapala.fruits_classification import FruitsClassification
+from mahapala import FruitsClassification
 
 fc = FruitsClassification()
 
@@ -149,4 +150,4 @@ def update_output_predication_result(list_of_contents, list_of_names, list_of_da
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run(debug=os.environ.get("DASH_DEBUG", "false").lower() == "true")
