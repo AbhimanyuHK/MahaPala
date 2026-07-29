@@ -100,7 +100,8 @@ _________________________________________________________________
 
 _Screenshot below is from the previous Dash-based UI; the dashboard now runs on Streamlit (`streamlit run app.py`)._
 
-![image](https://github.com/AbhimanyuHK/MahaPala/assets/32696360/59d1720c-316d-4f46-a5e8-17e93e6b70aa)
+<img width="1822" height="641" alt="image" src="https://github.com/user-attachments/assets/1e2895ef-97f5-4380-875a-5cb0de396e0f" />
+
 
   
 ## Release Note
