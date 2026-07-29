@@ -7,7 +7,7 @@ Detection of fruits disease by using Machine learning
 * TensorFlow / Keras — CNN model for fruit classification
 * OpenCV — template matching sample
 * Matplotlib — training/validation charting
-* Dash + Dash Bootstrap Components — web dashboard
+* Streamlit — web dashboard
 * pytest — automated tests
 
 ## Getting Started
@@ -31,10 +31,10 @@ pip install -r dev-requirements.txt
 Run the dashboard:
 
 ```
-python app.py
+streamlit run app.py
 ```
 
-Then open http://127.0.0.1:8050 in a browser, upload a fruit/plant image, and view the predicted class and confidence.
+Then open http://localhost:8501 in a browser, upload a fruit/plant image, and view the predicted class and confidence.
 
 Run the tests:
 
@@ -98,14 +98,17 @@ _________________________________________________________________
 ```
 # Dashboard 
 
+_Screenshot below is from the previous Dash-based UI; the dashboard now runs on Streamlit (`streamlit run app.py`)._
+
 ![image](https://github.com/AbhimanyuHK/MahaPala/assets/32696360/59d1720c-316d-4f46-a5e8-17e93e6b70aa)
 
   
 ## Release Note
 
 ## 2026.07.29
-* Modernized dependencies (TensorFlow, numpy, matplotlib, opencv-python, dash, dash-bootstrap-components) and replaced deprecated Keras/Dash APIs
+* Modernized dependencies (TensorFlow, numpy, matplotlib, opencv-python) and replaced deprecated Keras APIs
 * Added pytest-based automated tests and a CI workflow to run them on every push/PR
+* Migrated the dashboard from Dash to Streamlit
 
 ## 2023.12.16
 * #9 Create a sample to identify the fruits name
